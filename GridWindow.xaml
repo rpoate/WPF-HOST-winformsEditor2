@@ -1,0 +1,27 @@
+﻿<Window x:Class="WPF_HOST_winformsEditor.GridWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_HOST_winformsEditor" xmlns:zoople="clr-namespace:Zoople;assembly=HTMLEditor"
+        mc:Ignorable="d"
+        Title="GridWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <DataGrid Name="dgSimple" AutoGenerateColumns="False" RowDetailsVisibilityMode="Visible">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Name" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Birthday}" />
+
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <WindowsFormsHost HorizontalAlignment="Stretch" Height="100" VerticalAlignment="Stretch">
+                        <zoople:HTMLEditControl CSSText="body {font-family: arial}" CancellableUserInteraction="htmlEditor_CancellableUserInteraction" MouseDoubleClick="htmlEditor_MouseDoubleClick" x:Name="htmlEditor" Dock="Fill" HideMainToolbar="True" HideDOMToolbar="True"></zoople:HTMLEditControl>
+                    </WindowsFormsHost>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+    </Grid>
+</Window>
